@@ -1,0 +1,12 @@
+\begin{figure}[h]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=go, caption={Api routes}, label={lst:apiRouting}]
+// API routings
+util.TypeLogger.Info("%s: Setting up api routes", packageName)
+router.HandleFunc("/repo/add", controller.RepoController{}.NewRepoFromURI)
+router.HandleFunc("/repo/list", controller.RepoController{}.GetAllRepos)
+router.HandleFunc("/repo/{repoId}/initial/", controller.RepoController{}.ParseInitial)
+router.HandleFunc("/repo/{repoId}/file/read/", controller.CodeSnippetController{}.GetImplementation)
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

@@ -1,0 +1,25 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=Java, caption={Antlr CPP listener example}, label={lst:antlrCPPListenerExample}]
+public void enterFunctiondefinition(CPP14Parser.FunctiondefinitionContext ctx) {
+	...
+
+	FunctionModel functionModel = new FunctionModel(input.getText(interval));
+	functionModel.setLineStart(ctx.functionbody().start.getLine());
+	functionModel.setLineEnd(ctx.functionbody().stop.getLine());
+	this.enterScope(functionModel);
+}
+
+public void exitFunctiondefinition(CPP14Parser.FunctiondefinitionContext ctx) {
+	Model model = this.exitScope();
+
+	if (model instanceof FunctionModel) {
+		this.scopeStack.peek().addDataInModel((FunctionModel) model);
+	} else {
+		this.enterScope(model);
+		... // Print wrong parent model
+	}
+}
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

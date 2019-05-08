@@ -1,0 +1,38 @@
+\newglossaryentry{raycasting}{name={raycasting}, description={The use of ray–surface intersection tests to solve a variety of problems in computer graphics and computational geometry. \cite{wiki:raycasting}}}
+
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=JavaScript, caption={Shows a snippet of \gls{raycasting} onMouseClick}, label={lst:onClick}]
+/**
+ * On click mouse event function.
+ *
+ * @param      {Event}  event   The event.
+ */
+function onMouseClick(event) {
+
+    // calculate mouse position in normalized device coordinates
+    // (-1 to +1) for both components
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+
+    // update the picking ray with the camera and mouse position
+    raycaster.setFromCamera(mouse, camera);
+
+    // calculate objects intersecting the picking ray
+    var intersects = raycaster.intersectObjects(scene.children ,true);
+
+    if(intersects !== "undefined" && intersects.length > 0) {
+        var funcName = intersects[0].object.name.substr(0, intersects[0].object.name.indexOf(' |'));
+
+        sendGetRequest("http://" + config.serverInfo.api_ip + ":" + config.serverInfo.api_port +
+            "/repo/" + id + "/file/read/?lineStart=" + functionModels.get(funcName).getStartLine() +
+            "&lineEnd=" + functionModels.get(funcName).getEndLine() +
+            "&filePath=" + functionModels.get(funcName).getFileName())
+        .then(json => {
+            windowMgr.setDataStructureImplementation(json.implementation);
+        });
+    }
+}
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

@@ -1,0 +1,28 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=JavaScript, caption={Force calculation to space out data-structures for visualization}, label={lst:getTotalForce}]
+    ...
+    if (typeof link !== "undefined") { // Attractive forces
+        forceScalar = (
+            link.attraction * Math.log10(
+                dist / (minDistance + size + node.getSize())
+            )
+        );
+    } else {    // Repulsive force.
+        forceScalar = (-1 *
+            (
+                (maxDistance + size + node.getSize()) /
+                Math.pow(dist, 2)
+            )
+        );
+
+    }
+    ...
+gravityForce = (Math.log10(distanceFromOrigin + maxSize) - Math.log10(maxSize - distanceFromOrigin)) * gravityForce;
+...
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}
+
+%// Attractive forces are based on logarithmic spring strenghts.
+%// Repulsive forces are based on Hookes law (inverse square law).

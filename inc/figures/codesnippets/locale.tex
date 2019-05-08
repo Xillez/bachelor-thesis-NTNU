@@ -1,0 +1,35 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=JavaScript, caption={Language option functionality}, label={lst:locale}]
+var LOCALE = (function() {
+    var locale = {
+        sentences: [
+            {
+                id: "language_not_found",
+                values: [
+                    {
+                        language: "english",
+                        value: "Could not find language"
+                    },
+                    {
+                        language: "norwegian",
+                        value: "Fant ikke spr\aket"
+                    }
+                ]
+            },
+            ...
+        ]
+    };
+
+    // Available languages.
+    const languages = ["english", "norwegian"];
+    
+    // English language as defualt.
+    var currentLanguage = languages[0];
+    
+    var getSentence = function(id) { ... }
+    ...
+})();
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

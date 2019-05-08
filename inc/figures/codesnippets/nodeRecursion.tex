@@ -1,0 +1,34 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=JavaScript, caption={Recursive to get node in tree, initiated by FDG(root)}, label={lst:getNode}]
+    /**
+     * Gets the node based on index.
+     *
+     * @param  {number} requestedIndex - The requested node index
+     * @return {object} The node.
+     */
+    var getNode = function(requestedIndex, level){
+        var localOffset = 0;                // Used to calculate relative index.
+        var requestedNode = null;
+        // Check if self is requested node.
+        if (typeof index !== "undefined" && (index-1 === requestedIndex)) { 
+            return this
+        }
+        // Check if children is requested node.
+        children.every( function(child, i) { 
+            localIndex = child.getIndex();
+            // Check if requested is within childs range.
+            if ((localIndex-1)+localOffset < requestedIndex){               
+                localOffset += localIndex;
+            }else {
+                // Child cointain range with requested node.
+                requestedNode = child.getNode(requestedIndex - localOffset);
+                return false;
+            }
+            return true;
+        });
+        return requestedNode;       // indicate that node was not found
+    }
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

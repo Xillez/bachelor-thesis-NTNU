@@ -1,0 +1,32 @@
+\section*{Meeting with Product owner}
+
+\subsection*{Participants}
+\textbf{Convener}: \productowner{}\\
+\textbf{Facilitator}: \facilitator{}  \\
+\textbf{Recorder}: \scrummaster{}  \\
+\textbf{Others}: \groupleader{} \\
+\textbf{Absent}: 
+
+\subsection*{Agenda}
+\begin{itemize}
+    \item Feedback
+\end{itemize}
+
+\subsection*{Minutes}
+Update from last sprint, we were 3 days behind. now we are 1 day behind after 212 hours. We can now display somthing, but currently broken by backend changes. 
+
+Currently the 3D force directed graph works, but we dont use backend data yet (soon).  The algorithm is not a library, we implemented it but we might change and make it a dependency due to some limitations. 
+
+The force is calculated as individual links between each node, other implementations use a global force instead. 
+
+There could be complications with this as larger systems might collapse. Will probably need to be revisited often throughout the project. Interesting. "Can of worms". Should bear in mind that attraction change over distance. We have done this. 
+
+The json model sendt from the backed duplicates with multiple scopes. While looking into it check how to see what you can get from parts, try to do it so you dont need to revisit the schema. We are looking into listeners and visitors. 
+
+The parsing takes a long time, should do some chaching, and delete things that are not used for a long time.
+
+Including imgu creates a dependency on emscripten and use of npm for now.
+
+We should probably spend time in the upcomming sprint on working on the frontend, refactoring it as now if multiple were to work on it, there is bound to be major conflicts. The Antler scope problem is kind of a major blocker, but with data mocking we should be able to get past that.
+
+\newpage

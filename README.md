@@ -1,4 +1,4 @@
-# Bachelor thesis template (NTNU)
+b# Bachelor thesis template (NTNU)
 
 A Latex template, class file, and examples for writing a bachelor thesis at NTNU
 

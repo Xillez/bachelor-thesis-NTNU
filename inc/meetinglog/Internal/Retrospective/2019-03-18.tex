@@ -1,0 +1,52 @@
+\section*{Retrospective meeting}
+\subsection*{Participants}
+
+\textbf{Convener}:\scrummaster{} \\
+\textbf{Facilitator}: \facilitator{}  \\
+\textbf{Recorder}: \scrummaster{} \\
+\textbf{Others}: \groupleader{} \\
+\textbf{Absent}:
+
+\subsection*{Agenda}
+\begin{itemize}
+    \item What went well?
+    \item What could have been done better?
+    \item Is there something new that the team wants to start doing?
+    \item Is there something that puzzles us?
+\end{itemize}
+
+\subsection*{Retrospective}
+
+\noindent
+
+\par
+
+\begin{Parallel}[v]{0.48\textwidth}{0.48\textwidth}
+\ParallelLText{\noindent
+
+\textbf{What did we do well?}
+\begin{itemize}[rightmargin=.52\textwidth]
+    \item{We managed to refactor the back-end to use listeners instead of huge nested if statements code blocks.}
+    \item{We managed to change the structure on front-end to use trees instead of arrays for force directed graph and parsing.}
+\end{itemize}
+    
+}
+\ParallelRText{\noindent
+
+\textbf{What should we have done better?} 
+\begin{itemize}[rightmargin=.52\textwidth]
+    \item{At no point should the group be expected to work for 200 hours in one week.}
+    \item{Estimation was far off, the stories that were expected to be almost done from previous sprint are still a problem.}
+\end{itemize}
+    
+}
+\ParallelPar
+\end{Parallel}
+\subsection*{Is there something new that the team wants to start doing?}
+The team wants to have a sprint that focuses heavily on testing as that has not been prioritized. 
+
+\subsection*{Is there something that puzzles us?}
+\label{appendix:retrospective2019-03-18}
+Parsing function has puzzled us for the past 3 weeks, as C++ target functions are very flexible and can have anything in the body. We need a way to differentiate the function calls from the pointers assignment. Also keyword such as "this" is considered a function call no matter if the keyword is used to set a member variable or call a member function.
+Function calls are difficult because they can be overloaded (so the parameter types are important), scoped (so what is in front of the identifier is important), and can be called with objects whose scope is declared elsewhere. 
+\newpage

@@ -1,0 +1,26 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=Java, caption={Antlr Java listener example}, label={lst:antlrJavaListenerExample}]
+public void enterMethodDeclaration(Java9Parser.MethodDeclarationContext ctx) {
+	...// Get interval were function identifier is written.
+	
+	FunctionModel functionModel = new FunctionModel(input.getText(interval),
+			ctx.methodHeader().methodDeclarator().identifier().getText());
+    functionModel.setLineStart(ctx.methodBody().start.getLine());
+	functionModel.setLineEnd(ctx.methodBody().stop.getLine());
+	this.enterScope(functionModel);
+}
+
+public void exitMethodDeclaration(Java9Parser.MethodDeclarationContext ctx) {
+	Model model = this.exitScope();
+
+	if (model instanceof FunctionModel) {
+		this.scopeStack.peek().addDataInModel((FunctionModel) model);
+	} else {
+		this.enterScope(model);
+		... // Print wrong parent model
+	}
+}
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

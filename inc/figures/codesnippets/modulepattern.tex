@@ -1,0 +1,22 @@
+\begin{figure}[h]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=JavaScript, caption={Shows a use of Module pattern in stripped down FDG}, label={lst:module}]
+var FDG = (function FDG(
+    ...
+    ) {
+        ...
+        var getNodeIndex = function(name) { ... }
+        ...
+        var getNodes = function() { ... }
+        ...
+        // Expose private functions for global use.
+        return {
+            getNodeIndex: getNodeIndex,
+            getNodes: getNodes,
+            ...
+        }
+    }
+);
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

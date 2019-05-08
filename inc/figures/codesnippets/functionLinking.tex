@@ -1,0 +1,36 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=JavaScript, caption= {Linking function of calls}, label={lst:callLinks}]
+var setLinks = function(tree, scene){
+    scene.updateMatrixWorld();
+    var nodes = tree.getSuccessors();
+
+    nodes.forEach( function(node, index) {
+
+        if (node.getDrawableIndex() != -1) {
+
+            node.getLinks().forEach((strength, otherIndex) => {
+
+                if (nodes[otherIndex].getDrawableIndex() != -1) {
+
+                    var material = new THREE.LineBasicMaterial({
+                        color: STYLE.getDrawables().link.color
+                    });
+
+                    var geometry = new THREE.Geometry();
+
+                    geometry.vertices.push(
+                        new THREE.Vector3().setFromMatrixPosition(drawables.get(node.getType())[node.getDrawableIndex()].getMesh().matrixWorld),
+                        new THREE.Vector3().setFromMatrixPosition(drawables.get(nodes[otherIndex].getType())[nodes[otherIndex].getDrawableIndex()].getMesh().matrixWorld)
+                    );
+
+                    var line = new THREE.Line(geometry, material);
+                    scene.add(line);
+                }
+            });
+        }
+    });
+}
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

@@ -1,0 +1,15 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=AntlrGrammar, caption={A rule from CPP14.g4 \cite{git:cpp14_g4} from the ANTLR grammar \gls{git} repository}, label={lst:antlrCppGrammarRuleExample}]
+memberdeclaration
+   : attributespecifierseq? declspecifierseq? memberdeclaratorlist? ';'
+   | functiondefinition
+   | usingdeclaration
+   | static_assertdeclaration
+   | templatedeclaration
+   | aliasdeclaration
+   | emptydeclaration
+   ;
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

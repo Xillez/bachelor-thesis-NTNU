@@ -1,0 +1,26 @@
+Summary,Issue key,Issue Type,Sprint,Story Points
+As a developer i would like the API endpoint extended to give enough to represent simple and multidimentional variables.,COD-7,Story,Metadata and coupling sprint,8
+As a  developer i would like the API to include request for implementation based on function/class/etc name or start/end markers,COD-25,Story,Interactable view sprint,3
+As a developer i would like an API endpoint giving metadata about the project.,COD-13,Epic,,
+As a developer i would like the API endpoint extended to give information about what functions call what.,COD-9,Story,Interactable view sprint,3
+As a user I would like to see what functions are tightly coupled in the 3D representation,COD-8,Story,Metadata and coupling sprint,5
+As a user i would like to navigate the 3d representation.,COD-10,Story,Interactable view sprint,8
+As a developer i would like the API endpoint to include comment coverage and test coverage,COD-15,Epic,,
+As a user i would like to submitt a git repository link for the system.,COD-6,Story,Hello world sprint,3
+As a user i would like to view or hide the implementation of a function or class by clicking it.,COD-11,Story,Represent complex data sprint,5
+As a developer i want an API endpoint that gives me enough to represent a basic function.,COD-4,Story,Hello world sprint,13
+As a user i would like to see a representation of a simple function,COD-3,Story,Hello world sprint,8
+As a user I want to submit hello world repository and visualize my code in 3D,COD-2,Epic,,
+As a developer i would like coding language for analysis to be based on provided lexer file.,COD-24,Story,Lexer file integration sprint,5
+As a user i would like to submitt a lexer file for defining language syntax,COD-23,Story,Lexer file integration sprint,13
+As a user i would like to change the colorscheme.,COD-18,Story,User experience sprint,3
+As a user i would like code to be displayed with syntax highlighting,COD-22,Story,User experience sprint,5
+As a user i would like to resize windows ,COD-20,Story,User experience sprint,8
+"As a developer i would like the API endpoint to include metadata like  lines of code, number of functions, number of classes and number of namespaces.",COD-14,Story,Metadata and coupling sprint,3
+As a user i would like to highlight connections from selected node.,COD-12,Story,Interactable view sprint,3
+As a user i would like to display code in a seperate window,COD-21,Story,Interactable view sprint,3
+As a user i would like to see test coverage and comment coverage for Golang,COD-26,Story,,
+As a user i would like the data structures in the 3D visualization to group together with related structures,COD-19,Story,Represent complex data sprint,8
+As a user i would like to see what namespace data structures are in.,COD-17,Story,Represent complex data sprint,3
+As a user i would like to be notified if my browser does not support WebGL or this application,COD-5,Story,Hello world sprint,2
+,,,,112

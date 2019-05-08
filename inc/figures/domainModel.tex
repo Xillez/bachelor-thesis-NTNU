@@ -1,0 +1,89 @@
+\begin{figure}[H]
+\begin{tikzpicture}
+
+\umlemptyclass[x=0, y=-3]{User}
+\umlemptyclass[x=0, y=-6]{Visualization}
+\umlclass[x=0, y=-10]{Quality metrics}{
+    name : str\\
+    value[] : int\\
+    quality rank : str\\
+}{}
+
+\umlclass[x=5, y=-3]{Git Project}{
+    URI : str \\
+    commitLog[] : str
+}{}
+\umlemptyclass[x=5, y=-6]{Project Code}
+
+\umlclass[x=10, y=-6]{Source File}{
+    language : str \\
+    content : str 
+}{}
+\umlclass[x=10, y=-12]{Language Parser}{
+    language : str 
+}{}
+
+\umlclass[x=6.5, y=-8]{Syntax Rule}{
+     syntax: str \\
+}{}
+
+\umlclass[x=5, y=-12]{Code Structure}{
+    name : str\\
+}{}
+
+\umlemptyclass[x=0.5, y=-15]{Namespace}
+\umlemptyclass[x=3, y=-15]{Class}
+\umlclass[x=5, y=-15]{Function}{
+}{}
+\umlclass[x=7, y=-15]{Variable}{
+    value : str\\
+    name : str\\
+    type : str\\
+}{}
+\umlemptyclass[x=9, y=-15]{Template}
+\umlemptyclass[x=11, y=-15]{Call}
+
+\umlclass[x=7, y=-18]{Argument}{
+}{}
+
+\umlassoc[geometry=-|, arg1=1..1, anchor2=-180, arg2=1..*] 
+    {User}{Git Project}
+\umlassoc[geometry=-|,  arg1=1..1, anchor2=-180, arg2=1..1 ]
+    {Visualization}{Project Code}
+\umlassoc[geometry=-|-, arg1=1..*, pos1=1, anchor2=-160, arg2=1..1, pos2=2.5]
+    {Quality metrics}{Project Code}
+
+\umlassoc[arg1=1..1, pos1=0.05, anchor2=-90, arg2=1..1, pos2=0.65] 
+    {Source File}{Language Parser}
+\umlassoc[geometry=-|, arg1=1..1, pos1=1.55, anchor2=90, arg2=1..1, pos2=1.9] 
+    {Git Project}{Project Code}
+\umlassoc[geometry=-|, arg1=1..1, pos1=0.1, anchor2=90, arg2=1..*, pos2=0.55] 
+    {Project Code}{Source File}
+
+\umluniassoc[arg1=0..*, angle1=10, angle2=50, loopsize=1.5cm]
+    {Syntax Rule}{Syntax Rule}
+    
+\umlNarynode[x=6.5,y=-10, name=languageStructureSyntax, below]{}
+    \umlassoc[arg1=0..*]{Syntax Rule}{languageStructureSyntax}  
+    \umlassoc[geometry=|-, anchor1=120, arg1=1..1]{Language Parser}{languageStructureSyntax}  
+    \umlassoc[geometry=|-, arg1=0..*]{Code Structure}{languageStructureSyntax} 
+
+\umluniassoc[arg1=0..*, angle1=10, angle2=50, loopsize=1.5cm]
+    {Code Structure}{Code Structure}
+
+
+\umlinherit[geometry=|-|]{Namespace}{Code Structure}
+\umlinherit[geometry=|-|]{Class}    {Code Structure}
+\umlinherit[geometry=|-|]{Function} {Code Structure}
+\umlinherit[geometry=|-|]{Variable} {Code Structure}
+\umlinherit[geometry=|-|]{Template} {Code Structure}
+\umlinherit[geometry=|-|]{Call}     {Code Structure}
+
+\umlcompo[]{Variable}{Argument}
+\umlassoc[geometry=-|, arg1=0..*, arg2=0..1, pos2=1.8]{Argument}{Call} 
+
+
+\end{tikzpicture}
+\caption{Domain model.}
+\label{fig:domainModel}
+\end{figure}

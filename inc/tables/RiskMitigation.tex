@@ -1,0 +1,69 @@
+% 4 & Technology & Application instability & 5 & Low & Severe
+% 5 & Organization & Team members are unavailable for longer period of time & 6 & Medium & Significant
+% 1 & Organization & Losing important data & 7 & Low & Significant
+% 10 & Organization & Fail to follow software methodology & 8 & Medium & Minimal
+% 9 & Technology & Integration testing environments aren't available & 9 & Low & Minor
+% 3 & Technology & Sanitation of input from external sources & 10 & Medium & Significant
+% 11 & Technology & Exposure of sensitive personal or corporate data & 11 & Very Low & Severe
+% 12 & Technology & Incapability of identifying individual or corporate entity & 12 & Very Low & Moderate
+% 13 & Technology & Illegal use of stored software & 13 & Low & Significant
+
+\begin{itemize}
+    \item Test coverage of all important functions
+    \item Use of static analysis tools
+\end{itemize} 
+
+\begin{table}[H]
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{|c|l|p{10cm}|}
+    \hline
+    \cellcolor[HTML]{AFAFAF} Priority & \cellcolor[HTML]{AFAFAF} Risk & \cellcolor[HTML]{AFAFAF} Mitigation  \\
+    \hline
+    \hline
+    1 & Discovering problems in requirements at delivery
+    & \begin{itemize}
+        \item Use an agile development process 
+        \item Perform regular user testing
+    \end{itemize} \\ 
+    \hline
+    2 & Learning curve lead to delay 
+    & \begin{itemize}
+        \item When a new technology is to be use a workshop for exploring it will be held
+    \end{itemize}\\
+    \hline
+    3 & Project size is under estimate
+    & \begin{itemize}
+        \item Use an agile development process
+        \item Have regular meetings with product owner 
+    \end{itemize} \\
+    \hline
+        4 & Technology components are not scalable
+        & \begin{itemize}
+            \item Use IaC and code for modularity 
+        \end{itemize}\\
+    \hline
+    5 & Application instability
+    &\begin{itemize}
+        \item Unit test coverage of all important functions
+        \item Use DevOps with live server throughout the development
+    \end{itemize} \\
+    \hline
+    6 & Team members are unavailable for longer period of time
+    &\begin{itemize}
+        \item Focus on reviewing git pull requests well
+        \item Good communication amongst developers
+    \end{itemize}\\
+    \hline
+    7 & Losing important data
+    &\begin{itemize}
+        \item Use cloud storage
+        \item Additional data storage security systems
+        \item Have and take regular backups
+    \end{itemize}\\
+    \hline
+    
+\end{tabular}
+}
+\caption{Risk mitigation}
+\label{riskMitigation}
+\end{table}

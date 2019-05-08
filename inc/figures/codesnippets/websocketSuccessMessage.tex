@@ -1,0 +1,18 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=Go, caption={Websocket success response}, label={lst:websocketMessageSuccess}]
+response := WebsocketResponse{
+	StatusText: http.StatusText(http.StatusOK),
+	StatusCode: http.StatusOK,
+	Body: map[string]interface{}{
+		"id":               vars["repoId"],
+		"status":           "Parsing",
+		"currentFile":      parserResponse.CurrentFile,
+		"parsedFileCount":  parserResponse.ParsedFileCount,
+		"skippedFileCount": parserResponse.SkippedFileCount,
+		"fileCount":        parserResponse.FileCount,
+	},
+}
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

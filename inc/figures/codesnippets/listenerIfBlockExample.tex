@@ -1,0 +1,26 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=Java, caption={If block example}, label={lst:ifBlockExample}]
+	protected boolean isVariable(CPP14Parser.SimpledeclarationContext ctx){
+		CPP14Parser.InitdeclaratorlistContext initDeclList = null;
+		CPP14Parser.DeclaratorContext declarator = null;
+
+		if(ctx.initdeclaratorlist() != null) {
+			initDeclList = ctx.initdeclaratorlist();
+			if(initDeclList.initdeclarator().declarator() != null) {
+				declarator = initDeclList.initdeclarator().declarator();
+				if(declarator.ptrdeclarator() != null) {
+					if(declarator.ptrdeclarator().noptrdeclarator() != null) {
+			            if(declarator.ptrdeclarator().noptrdeclarator().declaratorid() != null) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+
+		return false;
+	}
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

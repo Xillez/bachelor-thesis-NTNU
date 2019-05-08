@@ -17,13 +17,33 @@
 %%  ``BITSEC''  Bachelor in IT-Operations and Information security 
 %%   for example \documentclass[BCE,norsk,twoside]{ntnuthesis/ntnubachelorthesis}
 
-\documentclass[BITSEC,norsk,oneside]{ntnuthesis/ntnubachelorthesis}
+\documentclass[BPROG,english,oneside]{ntnuthesis/ntnubachelorthesis}
+%\usepackage[table]{xcolor}
+\usepackage[acronym]{glossaries}
+\makeglossaries
 
+\usepackage{colortbl}
 \usepackage{csvsimple}
 \usepackage{booktabs}
-
+\usepackage{parallel,enumitem}
 \usepackage{gnuplottex}
+\usepackage{pgfplots}\pgfplotsset{compat=1.15}
+\usepackage[super]{nth}
+\usepackage{soul}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{ {inc/images/} }
 
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\linespread{1.05}
+\usepackage{tikz}
+\usepackage{dependency/tikz-uml} 
+%\usepackage{amsmath}
+%\usepackage{savetrees}
 
 \definecolor{darkgreen}{rgb}{0,0.5,0}
 \definecolor{darkred}{rgb}{0.5,0.0,0}
@@ -63,15 +83,17 @@
 
 \newcommand{\gj}{NTNU i Gj\o{}vik}
 
+% General purpose commands
+\newcommand{\supervisor}{Kolloen, Oivind}
+\newcommand{\productowner}{Frantz, Christopher}
+\newcommand{\scrummaster}{Torkelsen, Eldar Hauge}
+\newcommand{\groupleader}{Holt, Kent Wincent}
+\newcommand{\facilitator}{Butt, Zohaib}
 
 % Norwegian Characters,  needs the {} or to be separate from the next letters
 % \o{}   \aa{}   \ae{}   so at the end of a word you can use \o  \aa   \ae
 % \O{}   \AA{}   \AE{}   you can also just leave a space and latex will remove it
 %    eg, NTNU i Gj\o vik  or NTNU i Gj\o{}vik
-
-
-
-
 
 \begin{document}
 
@@ -86,7 +108,10 @@
 \listoffigures
 \listoftables
 \lstlistoflistings
+\printglossaries
 
+% Language definitions
+\input{inc/lstLanguages/lstSetup.tex}
 
 \input{inc/introduction}
 \input{inc/requirements}
@@ -100,13 +125,15 @@
 
 
 \bibliographystyle{ntnuthesis/ntnubachelorthesis}
-\bibliography{inc/BachelorExample}
+\bibliography{inc/BibTex}
 
 \appendix %after this line all chapters will have letters instead of numbers
+\chapter{Initial Project Description} \label{appendix:initialProjectDescription}
+\includepdf[pages={-}]{inc/generalAppendix/3DRepresentationofComplexDataStructures.pdf}
 \input{inc/projectplan}
 
 %\input{inc/gantt}
-\input{inc/meetinglog}
+\input{inc/meetinglog.tex}
 %\input{inc/worklog}
 
 \end{document}

@@ -1,0 +1,36 @@
+
+
+\begin{figure}[h!]
+\begin{tikzpicture}
+\begin{umlsystem}{System}
+\umlusecase[x=-2, y=0, name=highlightConn]{Highlight connection between data-structures}
+\umlusecase[x=0, y=1, name=submitRepo]{Submit git repository}
+\umlusecase[x=0, y=8.5, name=loadRepo]{Load other repository stored in DB}
+\umlusecase[x=2, y=2, name=navigate]{Navigation of visualization}
+\umlusecase[x=0, y=4, name=getImpl]{Get implementation of data-structure}
+\umlusecase[x=0, y=5, name=qualityMet]{Select quality metrics} 
+\umlusecase[x=0, y=6, name=lexer]{Adding a lexer file}
+\umlusecase[x=2, y=3, name=color-scheme]{Add a custom color-scheme}
+\umlusecase[x=0, y=7, name=GUI]{Change GUI layout}
+\umlusecase[x=-3, y=10, name=codebase]{Get representation of codebase}
+\end{umlsystem}
+
+\umlactor[x=-9, y=4]{User}
+
+
+\umlassoc{User}{highlightConn}
+\umlassoc{User}{submitRepo}
+\umlassoc{User}{loadRepo}
+\umlassoc{User}{navigate}
+\umlassoc{User}{getImpl}
+\umlassoc{User}{qualityMet}
+\umlassoc{User}{lexer}
+\umlassoc{User}{color-scheme}
+\umlassoc{User}{GUI}
+\umlassoc{User}{codebase}
+
+\umlinclude{codebase}{loadRepo}
+
+\end{tikzpicture}
+\caption{Use case diagram.}
+\end{figure}

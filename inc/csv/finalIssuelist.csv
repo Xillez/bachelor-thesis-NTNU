@@ -1,0 +1,73 @@
+Summary,Issue key,Issue Type,Status
+Make antlr scope sensitive,COD-42,Story,Done
+As a developer i would like the duplicated content from the parsed output to be merged.,COD-76,Story,In Progress
+As a user i would like to see the cyclomatic complexity of the codebase being visualized.,COD-74,Story,In Progress
+As a user i would like to only see the names of the data structures within some radius of the mouse pointer.,COD-75,Story,To Do
+Save output from java parsing in the database,COD-59,Story,To Do
+As a user I would like to see what functions are tightly coupled in the 3D representation,COD-8,Story,To Do
+Write tests for model/controller repo.go,COD-62,Story,Pending review
+As a user i would like to navigate the 3d representation.,COD-10,Story,To Do
+Write ava test for repo/list,COD-66,Story,To Do
+Write ava test for repo/\{repoId\}/file/read,COD-68,Story,To Do
+Write ava test for repo/\{repoId\}/initial,COD-67,Story,To Do
+Show things belonging in a scope inside its scope in the visualization,COD-57,Story,Done
+As a user i would like to see classes parsed for both java and cpp target,COD-56,Story,Done
+Write tests for Cpp and Java ParserFacade.java,COD-69,Story,Done
+Write test for MongoDB.go,COD-73,Story,Done
+Write tests for java Models,COD-72,Story,Done
+Write ava test for repo/add,COD-65,Story,Done
+Write unit testing and apitests for java and golang,COD-61,Epic,To Do
+Write tests for typeLogger.go,COD-64,Story,Done
+Write tests for validation.go,COD-63,Story,Done
+Write tests for CodeSnippetController,COD-60,Story,Done
+Implement level of detail (LOD) on force directed graph to hide details when zoomed out,COD-58,Story,To Do
+As a developer i would like the API endpoint extended to give information about what functions call what.,COD-9,Story,Done
+Get what functions are called by other function,COD-47,Sub-task,Done
+Research quality metrics and existing solutions.,COD-51,Story,Done
+Add websocket to front-end,COD-37,Story,Done
+Add websocket for initial request frontend,COD-50,Sub-task,Done
+Setup frontpage with information about the project,COD-34,Story,Done
+Add websocket to back-end,COD-36,Story,Done
+Add websocket for initial request backend,COD-49,Sub-task,Done
+As a user i would like to view or hide the implementation of a function or class by clicking it.,COD-11,Epic,In Progress
+Parse lines of code in a file,COD-45,Sub-task,Done
+As a user I would like to see updates on loading state,COD-35,Epic,In Progress
+Add websocket for add request frontend,COD-39,Sub-task,Done
+Add websocket for add request,COD-38,Sub-task,Done
+Setup window for displaying code to show on response from backend,COD-30,Story,Done
+Parse number of namespaces in a file,COD-46,Sub-task,Done
+Parse number of functions in a file,COD-43,Sub-task,Done
+Parse number of classes in a file,COD-44,Sub-task,Done
+Send request to api when click on 3Dview function object.,COD-31,Story,Done
+Extended API endpoint to give enough to represent simple and multidimentional variables.,COD-7,Story,To Do
+Setup imgui,COD-28,Story,Done
+Find a way for antlr to parse only scope.,COD-29,Story,Done
+Replace Java Model based structure with tree to allow for better scope handling.,COD-33,Story,To Do
+Make API send implementation in given start/end interval. ,COD-25,Story,Done
+Update function response,COD-32,Sub-task,Done
+As a user i would like to submitt a git repository link for the system.,COD-6,Story,Done
+As a user i would like to see a representation of a simple function,COD-3,Story,Done
+As a developer i want an API endpoint that gives me enough to represent a basic function.,COD-4,Story,Done
+As a developer i would like an API endpoint giving metadata about the project.,COD-13,Epic,To Do
+As a developer i would like the API endpoint to include comment coverage and test coverage,COD-15,Epic,To Do
+As a user I want to submit hello world repository and visualize my code in 3D,COD-2,Epic,To Do
+Write tests for Cpp and Java Lstnr\_initial.java,COD-71,Story,To Do
+Write tests for Cpp and Java ExtendedListener.java,COD-70,Story,Pending review
+As a user i would like the data structures in the 3D visualization to group together with related structures,COD-19,Epic,In Progress
+As a user i would like to submitt a lexer file for defining language syntax,COD-23,Story,To Do
+As a developer i would like coding language for analysis to be based on provided lexer file.,COD-24,Story,To Do
+Add logger for error loggin on backend,COD-48,Story,Done
+Research connascence quality metrics and find exisiting solutions,COD-54,Sub-task,Done
+As a user i would like to highlight connections from selected node.,COD-12,Story,To Do
+As a user i would like to resize windows ,COD-20,Story,To Do
+Research cyclometric complexity quality metric and find existing solutions,COD-53,Sub-task,Done
+As a user i would like to display code in a seperate window,COD-21,Story,Done
+As a user i would like to see what namespace datastructures are in.,COD-17,Story,Done
+"Make API endpoint include metadata like  lines of code, number of functions, classes and namespaces.",COD-14,Story,Done
+Add IMGUI fileds for displaying available repositories,COD-40,Story,Done
+Add api endpoint for listing saved repositories,COD-41,Story,Done
+Frontend refactoring,COD-27,Story,Done
+As a user i would like to be notified if my browser does not support WebGL or this application,COD-5,Story,Done
+As a user i would like to change the colorscheme.,COD-18,Story,To Do
+As a user i would like code to be displayed with syntax highlighting,COD-22,Story,To Do
+As a user i would like to see test coverage and comment coverage for Golang,COD-26,,

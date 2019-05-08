@@ -1,0 +1,42 @@
+\usepackage[super]{nth}
+
+\begin{document}
+
+\section*{1st Statusreport}
+
+\section*{Participants}
+
+\textbf{Convener}: \groupleader{}     \\
+\textbf{Facilitator}: \facilitator{}  \\ 
+\textbf{Recorder}: \scrummaster{}   \\ 
+\textbf{Others}                    \\
+
+\section*{Summary}
+As of the \nth{8} of March, we are behind schedule due to the complexity of parsing and quantity of new technologies the team had to learn. 
+
+We haven't been able to write tests for any functionality, due to functionality taking precedence over tests and the misestimation of stories. Stories have in most cases been underestimated and not divided or concrete enough. 
+
+Despite this, the progression is still good and we expect to have a good product by the end of the development phase. 
+
+So far we parse and handle namespaces, functions, packages/using namespaces and partially classes for both Java version 9 and C++ version 14.
+
+\section*{Challenges}
+Parsing programming languages turned out to be more complicated than expected. We were using Antlr, but could not use its generated go code due to embedded Java being required in the grammar file to describe the programming language. As an example of Antlr complexity, if you want to find the function identifier/name through a class declaration, then you might have to go through a structure with 10 distinct contexts where 4 are called recursively. Simplifying this was done through handling scopes separately. It was difficult to make the parser in such a way that we could separate scopes and refactored several times ending with us using a stack based implementation. Where stack will give us what scope model we are parsing so we can add the data found in the scope model.
+
+We also underestimated the effort required to do user-studies, so this has been postponed for now. Every time we intended to follow through with our user-studies schedule, we found that slight changes would make the studies significantly informational and help-full. One such slight change was to add links for calls in the 3D representation, but this proved significantly more difficult than expected as to identify overloaded functions and class member functions, we were required to also parse name-spaces and variables with their types.
+
+The adding and parsing took a lot of time for multi-file repositories. The user would see the loading circle without any feedback on status of the system. To fix this we decided to send the API request using websocket protocol so that client and server could communicate while server is parsing.
+
+\section*{Accomplishment}
+We have a working minimum viable product that partially parses functions, namespaces, classes and variables of the submitted repository and displays basic information about the project. 
+
+The API is currently partially implemented. It has 4 possible endpoints which is Adding of repository, initial request, Listing of stored repositories and fetching implementation of a function.
+
+For visualization of different data structures we decided to use forced directed graph to show the strong/weak relations between nodes. We are also thinking to apply level of detail, where one can zoom in to a node on the graph and a seperate 3D space will be initialized showing a graph containing data structures within the node scope. This will require rework on current implementation of forced directed graph.
+
+\section*{Upcoming}
+We are currently looking into more complicated quality metrics, like Connascence metrics, Halstead complexity measures, Cyclic complexity and programs like Sonarqube that might help us calculate these metrics easier.
+Later we will change the 3D representation to better reflect scopes in the parsed code and window management to make it easier for end-user to navigate and control the application. 
+\newpage
+
+\end{document}
