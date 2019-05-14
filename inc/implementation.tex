@@ -4,6 +4,7 @@
 
 \section{Front-end web development}
 \subsection{Overall design implementation}
+\label{subsection:frontendOverallDesignImplementation}
 %Explain the module pattern
 \input{inc/figures/codesnippets/modulepattern.tex}
 
@@ -13,7 +14,7 @@ The team have background in \gls{oop} and very limited experience with JavaScrip
 During refactoring team had done research and found different design pattern where module pattern \cite{scotch:javascriptpatterns} was very similar to classes encapsulation and felt a natural and easy choice to encapsulate functionalities in modern JavaScript fashion. One reason to choose module pattern was that the team wanted \gls{frontend} to be object-oriented, so that only the object would know about its properties and functionalities. Another reason to do so, is that it makes code easliy understandable by use of getters and setters functionalities, as shown in the figure \ref{lst:module}.
 The team decided to implement module pattern to structure front-end code. 
 
-There were two libraries used in \gls{frontend}, such as THREE.js and Imgui-js. Three.js is recommended \cite{cmarix:threejs} 3D graphics library as is based on WebGL. It also contains many different functionalities such as scenes, meshes, camera, lights and many more. This fits our requirements and worked for our purpose. Dear ImGUI is a windowing library for c++ that all team members are known of from graphics programming course \cite{course:graphics}. Dear ImGUI has a binding to JavaScript called ImGUI-js that uses TypeScript and Emscripten. This way we were able to integrate ImGUI-js into the system. The library is easy to use and fits our purpose.
+There were two libraries used in \gls{frontend}, such as THREE.js and Imgui-js. Three.js is recommended \cite{cmarix:threejs} 3D graphics library as is based on WebGL. It also contains many different functionalities such as scenes, meshes, camera, lights and many more. This fits our requirements and worked for our purpose. Dear ImGUI is a windowing library for C++ that all team members are known of from graphics programming course \cite{course:graphics}. Dear ImGUI has a binding to JavaScript called ImGUI-js that uses TypeScript and Emscripten. This way we were able to integrate ImGUI-js into the system. The library is easy to use and fits our purpose.
 
 \subsection{Force-directed graph}
 The \gls{fdg} object maintains a tree of nodes and manage the inter-dependencies between nodes in the tree. It references the tree through its root, which in turn reference its children. The main force calculation and scope handling is done in nodes, so the \gls{fdg} functions as a wrapper.
@@ -22,7 +23,7 @@ The \gls{fdg} object maintains a tree of nodes and manage the inter-dependencies
 
 \newglossaryentry{hookesLaw}{name={Hooke's law}, description={Describes a relationship between spring comression and force applied \cite{hooke1678}}}
 \newglossaryentry{logit}{name={logit}, description={Inverse of the Sigmund function \cite{wordpress:logitandsigmoid}}}
-\newglossaryentry{sigmoid}{name={sigmoid}, description={This is used to transform values on (-\infty, \infty) into numbers on (0, 1) \cite{wordpress:logitandsigmoid}}}
+\newglossaryentry{sigmoid}{name={sigmoid}, description={This is used to transform values on $(-\infty, \infty)$ into numbers on $(0, 1)$ \cite{wordpress:logitandsigmoid}}}
 
 %Explain Logit and force. Could probably add graph from ProfProg rapport.
 \input{inc/figures/codesnippets/forceCalculation.tex}
@@ -33,13 +34,14 @@ The idea behind the attractive force calculation is a spring; more energy is req
 The repulsion uses the inverse square law to grow weaker over a distance.
 
 \input{inc/figures/gravityPlot.tex}
-The figure also show gravity force calculation. Gravity attracts all structures towards the center of their scope. The center is the zero vector and updated with parents position when added to the scene graph after all relative positions have been calculated. The gravity calculation is based on \gls{logit}, as this implementation gives a gravity force approaching infinity when distance between structures approach max distance. This infinite force prevents structures from escaping their parent scope. The group choose to base it on \gls{logit} as the problem of limiting the position within a scope seemed related to \gls{sigmoid} that the group had experience with through REA1121 - Mathematics for Programming \cite{course:progMath}. \Gls{sigmoid} seemed relevant as it allowed for manipulation of the range and gave a smooth curve. Problem with \gls{sigmoid} is that if $x$ is distance and $y$ is force, then it would clamp on force rather than distance. \gls{logit} was described as the inverse of \gls{sigmoid} and would therefore clamp on distance, limiting the structure within its scope. As the distance between center and a structure could not be zero and gravity should never be negative, \gls{logit} was altered so it crossed the x axis at origin and approached infinity when it approached max distance like shown in figur \ref{fig:gravityPlot}.
+The figure also show the gravity force calculation. Gravity attracts all structures towards the center of their scope. The center is the zero vector and updated with parents position when added to the scene graph after all relative positions have been calculated. The gravity calculation is based on \gls{logit}, as this implementation gives a gravity force approaching infinity when distance between structures approach max distance. This infinite force prevents structures from escaping their parent scope. The group choose to base it on \gls{logit} as the problem of limiting the position within a scope seemed related to \gls{sigmoid} that the group had experience with through REA1121 - Mathematics for Programming \cite{course:progMath}. \Gls{sigmoid} seemed relevant as it allowed for manipulation of the range and gave a smooth curve. Problem with \gls{sigmoid} is that if $x$ is distance and $y$ is force, then it would clamp on force rather than distance. \gls{logit} was described as the inverse of \gls{sigmoid} and would therefore clamp on distance, limiting the structure within its scope. As the distance between center and a structure could not be zero and gravity should never be negative, \gls{logit} was altered so it crossed the x axis at origin and approached infinity when it approached max distance like shown in figur \ref{fig:gravityPlot}.
 
 \subsubsection{Recursivity of node}
+\label{subsubsec:recuriviryOfNode}
 %Explain the use of local/global index.
 \input{inc/figures/treeIndex.tex}
 \input{inc/figures/codesnippets/nodeRecursion.tex}
-The \gls{fdg} tree requiers each node has an identifier so that thy can identify each other for linking and potentially other purposes. This identifier is based on position in the tree and for easy searching. The identifier acts as an index in an array, starting at 0 and increasing with one for each node. When it was implemented, it had to be created based only on information of its sub-tree. This means its global index in the tree could not be calculated, only its local index where the node is the root. Once the tree is set in the \gls{fdg}, all nodes are given their global index. Before the global index is given, it can be calculated from the root node by using the local index given while building the tree. The local index is one greater than the sum of each child's local index. Figure \ref{fig:treeIndex} shows the relationship between local and global index while listing \ref{lst:getNode} shows a recurcive call to find a node with global index using the local index. LocalOffset in listing \ref{lst:getNode} is the refers to the offset from global index and local index caused by the parent node having a subtree to the left of the node being checked. Figure \ref{fig:treeIndex} is simplified by counting from  one instead of zero. The actual global index starts at zero to fit with array index. To account for the local index going from one and global index being accessed from zero, figure \ref{lst:getNode} shows index and local-index being subtracted by one in the conditionals.
+The \gls{fdg} tree requiers each node to have an identifier so that thy can identify each other for linking and potentially other purposes. This identifier is based on position in the tree and for easy searching. The identifier acts as an index in an array, starting at 0 and increasing with one for each node. When it was implemented, it had to be created based only on information of its sub-tree. This means its global index in the tree could not be calculated, only its local index where the node is the root. Once the tree is set in the \gls{fdg}, all nodes are given their global index. Before the global index is given, it can be calculated from the root node by using the local index given while building the tree. The local index is one greater than the sum of each child's local index. Figure \ref{fig:treeIndex} shows the relationship between local and global index while listing \ref{lst:getNode} shows a recurcive call to find a node with global index using the local index. LocalOffset in listing \ref{lst:getNode} refers to the offset from global index and local index caused by the parent node having a subtree to the left of the node being checked. Figure \ref{fig:treeIndex} is simplified by counting from  one instead of zero. The actual global index starts at zero to fit with array index. To account for the local index going from one and global index being accessed from zero, figure \ref{lst:getNode} shows index and local-index being subtracted by one in the conditionals.
 
 \subsection{Localization}
 \newglossaryentry{localization}{name={localization}, description={Translating a product into different languages or adapting a product to a country or region}}
@@ -53,6 +55,7 @@ The current implementation of \gls{localization} is not very good due to the way
 "getSentence" is the function responsible for fetching sentences in the currently selected language. If the sentence could not be found it defaults to the English language. 
 
 \subsection{Graphics}
+\label{subsection:graphicsFunctionLinking}
 \newglossaryentry{scenegraph}{name={scene graph}, description={A collection of nodes in a graph or tree structure which arranges the logical and often spatial representation of a graphical scene \cite{dollner2000generalizedSceneGraph}}}
 
 \input{inc/figures/codesnippets/functionLinking.tex}
@@ -65,9 +68,9 @@ The current implementation of \gls{localization} is not very good due to the way
 \href{https://threejs.org/}{THREE.js} uses a scene structure called \gls{scenegraph}. The structure in the \gls{scenegraph} allows to put object in a hierarchy and if the parent moves in the world, the children follow, to retain their position in relation to their parent. 
 
 % Difficulties in linking
-The \gls{scenegraph} caused a lot of confusion in linking the different functions based on calls. The solution for this was to use the "\href{https://threejs.org/docs/#api/en/core/Object3D.updateMatrixWorld}{updateMatrixWorld}" function from \href{https://threejs.org/}{THREE.js}'s \href{https://threejs.org/docs/#api/en/core/Object3D}{Object3D} which is the base class of \href{https://threejs.org/docs/#api/en/scenes/Scene}{Scene}. It runs a full update on all objects within the \gls{scenegraph} and updates all world positions. After this, it's possible to use "\href{https://threejs.org/docs/#api/en/math/Vector3.setFromMatrixPosition}{setFromMatrixPosition}" function from \href{https://threejs.org/}{THREE.js}, which uses the world matrix to calculate the actual position from world origin. 
+The \gls{scenegraph} caused a lot of confusion in linking the different functions based on calls. The solution for this was to use the \href{https://threejs.org/docs/#api/en/core/Object3D.updateMatrixWorld}{updateMatrixWorld} function from \href{https://threejs.org/}{THREE.js}'s \href{https://threejs.org/docs/#api/en/core/Object3D}{Object3D} which is the base class of \href{https://threejs.org/docs/#api/en/scenes/Scene}{Scene}. It runs a full update on all objects within the \gls{scenegraph} and updates all world positions. After this, it's possible to use \href{https://threejs.org/docs/#api/en/math/Vector3.setFromMatrixPosition}{setFromMatrixPosition} function from \href{https://threejs.org/}{THREE.js}, which uses the world matrix to calculate the actual position from world origin. 
 
-Drawing of objects in \href{https://threejs.org/}{THREE.js} can be done by using the \href{https://threejs.org/docs/#api/en/objects/Mesh}{Mesh} object. This object takes a \href{https://threejs.org/docs/#api/en/core/Geometry}{Geometry} which is the shape made from vertices, and a "Material" which gives the object characteristics and functionalities, e.g. Phong shading \cite{acm:phongShading1986book}, shadow mapping \cite{acm:perspectiveShadowMap2002book} capabilities, opacity, etc. These can then be added to the scene and updated if needed. 
+Drawing of objects in \href{https://threejs.org/}{THREE.js} can be done by using the \href{https://threejs.org/docs/#api/en/objects/Mesh}{Mesh} object. This object takes a \href{https://threejs.org/docs/#api/en/core/Geometry}{Geometry} which is the shape made from vertices, and a \href{https://threejs.org/docs/#api/en/materials/Material}{Material} which gives the object characteristics and functionalities, e.g. Phong shading \cite{acm:phongShading1986article}, shadow mapping \cite{acm:perspectiveShadowMap2002article} capabilities, opacity, etc. These can then be added to the scene and updated if needed. 
 
 The generation of the links is performed by looping over each nodes links and fetching the respective node's world position. These positions are given to a \href{https://threejs.org/}{THREE.js} \href{https://threejs.org/docs/#api/en/core/Geometry}{Geometry} and combined with a \href{https://threejs.org/docs/#api/en/materials/LineBasicMaterial}{LineBasicMaterial} object. This results in a line between the two positions. % Last sentence is probably unecessary
 
@@ -115,13 +118,13 @@ In Java \gls{antlr} parser JSONObject library was used to construct \gls{json} f
 % json in java
 
 
-\subsection{Processing server in Golang}
+\subsection{Processing server in Golang}    \label{subsection:golang}
 
 \subsubsection{REST and WebSocket}
 \input{inc/figures/codesnippets/websocketSuccessMessage.tex}
 Initially the requirements asked for a \gls{rest} service, but this was loosened in favor of \gls{websocket} to allow for updating the user on progress of lengthy tasks. As \gls{http} responses has more extensive status information than \gls{websocket}, the team decided to use the responses as a wrapper for a trimmed down \gls{http} response with \gls{http}Status code, \gls{http}Status text and body containing the requested information. Listing \ref{lst:websocketMessageSuccess} shows a potential response to update user on status of code-base parsing. It sends \gls{http}Status 200 OK, along with what is being parsed, whether it is parsing, done parsing or has failed parsing, how many files have been found and the ration of files that were parsed or not. Files that are not parsed, might include README.md, \gls{git} files or files with unsupported extensions.  
 
-\subsection{Language parsing in JAVA}
+\subsection{Language parsing in JAVA} \label{subsection:parsingJava}
 \input{inc/figures/codesnippets/antlrCPPGrammarExample.tex}
 
 Listing \ref{lst:antlrCppGrammarRuleExample} shows the rule defining the syntax for member declaration. 

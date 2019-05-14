@@ -9,7 +9,7 @@ This project was requested by \productowner{} from the Department of Computer Sc
 
 CodePark \cite{DBLP:journals/corr/abs-1708-02174} and CodeCity \cite{wettel2010software} are two applications trying to solve the same type of problem with similar 3D solution, representing the code as houses or city blocks. CodePark visualize the code-base in park-like environment. Each class in the code-base is represented as a interactable cube. In the cube, all functions in each class are visible on the wall and upon a click, it highlights the function in the code, which is shown on a separate wall. CodeCity represents the code as navigable cities, where each building represents a class and each district represents a package.
 
-The two examples differ from this project in how this project will represent connections related to \gls{controlFlow} and the code not being represented as buildings or cities. This project will also represent different data structures such as vectors and maps.
+The two examples differ from this project in how this project will represent connections related to \gls{controlFlow} and the code not being represented as buildings or cities. This project will also represent different data-structures such as vectors and maps.
 
 \section{Subject area}
 
@@ -17,7 +17,7 @@ Our software is meant to be used in a software development setting. Software dev
 
 System specification deals with identifying what the system should do and the environment it acts in.
 
-Software reuse takes those specifications and identifies preexisting systems that could be used instead of developing new software or could be used to make development easier. This process often identifies libraries and frameworks that can be used. Using libraries or frameworks in the systems is often recommended \cite{Krueger:1992:SR:130844.130856} in both large and small systems. Developers spend a lot of time debugging, securing, documenting, structuring, finding suitable libraries, finding frameworks, etc. Finding libraries and frameworks to be used in a project can be frustrating and time consuming if there is no good documentation, source code or life cycle provided \cite{mileva2009mining}.
+Software reuse takes those specifications and identifies preexisting systems that could be used instead of developing new software. This process often identifies libraries and frameworks that can be used, which is often recommended \cite{Krueger:1992:SR:130844.130856} in both large and small systems. Developers spend a lot of time debugging, securing, documenting, structuring or finding suitable libraries and frameworks, etc. This can be frustrating and time consuming if there is no good documentation, source code or life cycle provided \cite{mileva2009mining}.
 
 Software integration takes the preexisting systems or the software it integrates with and molds them to fit smoothly. The integration can vary in difficulty depending on the implementation of each software solution. 
 
@@ -28,7 +28,7 @@ Software testing validates that the functionality works as expected with no side
 
 Software maintenance deals with updating the software to remove issues found by users or through normal use. It also assures that dependencies stay up to date.
 
-The problem our system will help with is giving an impression of the build and quality of libraries and frameworks that are considered by the software reuse process as a potential addition for their project. The system will act as a lesser alternative to documentation or as a quick overview to the libraries or framework.
+The problem our system will help with is giving an impression of the build and quality of libraries and frameworks that are considered by the software reuse process. The system will act as a lesser alternative to documentation or as a quick overview to the libraries or framework.
 
 \section{Boundaries}
 \newglossaryentry{qualitymetric}{name={quality metric}, description={A rule for quantifying some characteristic or attribute of a computer software entity.
@@ -47,7 +47,7 @@ The web application mainly targets three different settings or context;
 \begin{itemize}
     \item Academic - Students, lecturer or researchers studying \gls{it}. 
     \item Professional - \gls{it} developers.
-    \item Unprofessional - hobbyists looking into \gls{it}.
+    \item Amateur - hobbyists looking into \gls{it}.
 \end{itemize}
 
 \subsubsection{Academic}
@@ -56,8 +56,8 @@ In an academic setting, the application can be used by students to check for cod
 
 Lecturers can use the system in the lectures to explain the differences between loosely and highly coupled architectures or discuss code quality.
 
-\subsubsection{Professional and unprofessional}
-The main target groups of this web-application are programmers in both professional and unprofessional settings. Here the application will be used mainly by the lead programmer as well as developers and architects to decide whether a library or framework should be used in production by assessing its complexity. 
+\subsubsection{Professional and amateur}
+The main target groups of this web-application are programmers in both professional and amateur settings. Here the application will be used mainly by the lead programmer as well as developers and architects to decide whether a library or framework should be used in production by assessing its complexity. 
 
 Programmers that are in the learning phase might find this application useful because of its 3D visualization of the code-base which will help them to see the whole code-base as one structured and clear representation.
 
@@ -65,13 +65,13 @@ Programmers that are in the learning phase might find this application useful be
 \newglossaryentry{opensource}{name={open-source}, description={Open source is a term denoting that a product includes permission to use its source code, design documents, or content \cite{wiki:opensource}}}
 Target group for the thesis is anyone interested in knowing about the development process, motivation or implementation of the project. First and foremost anyone involved in the grading process, but also any developer who would take the project further as an \gls{opensource} project or other derived work.
 This thesis is a natural followup after reading the documentation provided in the \gls{git} repository.
-%% Egen bakgrunn???
+
 \section{Motivation}
 \newglossaryentry{devops}{name=DevOps, description={A set of practices that aim to improve connections between development and operations and shorten the development liefecycle while ensuring high quality}}
 %
 % REFACTORING: Continue refactoring from here
 %
-The project description shown in appendix \ref{appendix:initialProjectDescription}, indicated great potential and was interesting . It allowed for flexibility and depth, by spanning a variety of technologies and subject areas. It mentioned web-technologies, language parsing, complex data structures, visualization with interaction and container technologies. For the group it was a good mix of familiar technologies for exploration and unfamiliar concepts to study. The project would allow for a practical application of \gls{devops} and system architecture that the group had more theoretical understanding of, through related subjects. It would also explore language parsing that the group has a very limited knowledge of and associate with low-level, complicated or compiler related subject areas. Parsing would allow for a deep dive into niche aspects of C++, Java or other programming languages. In addition the project was about static analysis that could help to improve understanding of code quality. The main motivation was the high learning outcome.
+The project description shown in appendix \ref{appendix:initialProjectDescription}, indicated great potential and was interesting . It allowed for flexibility and depth, by spanning a variety of technologies and subject areas. It mentioned web-technologies, language parsing, complex data-structures, visualization with interaction and container technologies. For the group it was a good mix of familiar technologies for exploration and unfamiliar concepts to study. The project would allow for a practical application of \gls{devops} and system architecture which the group had a more theoretical understanding of. It would also explore language parsing that the group has a very limited knowledge of and associate with low-level, complicated or compiler related subject areas. Parsing would allow for a deep dive into niche aspects of C++, Java or other programming languages. In addition the project was about static analysis that could help to improve understanding of code quality. The main motivation was the high learning outcome.
 
 \subsection{Background competence}
 \label{sec:competence}
@@ -84,7 +84,7 @@ The groups knowledge that was considered relevant for the project included:
     \item Operating systems - All members had theoretical knowledge through a course and practical experience with Linux as main driver for several years.
     \item Architecture and static analysis - All members had a theoretical understanding through the software engineering and software security course but lacked more in depth practical experience.
     \item Visualization and interaction - All members had experience through the graphics programming and the games programming courses. 
-    \item Complex data structures - All members had theoretical experience through math for programming, math for computer science and algorithmic methods.
+    \item Complex data-structures - All members had theoretical experience through math for programming, math for computer science and algorithmic methods.
     \item Web-development - All members had experience through Cloud Technologies course. Besides, individual members had experience through Web Technology course, software security project or learning assistant task. 
 \end{itemize}
 \subsection{Competence to acquire}
@@ -121,6 +121,7 @@ The groups knowledge that was considered relevant for the project included:
 \end{itemize}
 
 \subsection{Time Constraints}
+Project planning started \nth{5} Jan 2019.
 
 \begin{itemize}
     \item The system should be finalized by \nth{16} May.

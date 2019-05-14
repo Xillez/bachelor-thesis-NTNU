@@ -42,6 +42,7 @@
 \linespread{1.05}
 \usepackage{tikz}
 \usepackage{dependency/tikz-uml} 
+\usepackage[super]{nth}
 %\usepackage{amsmath}
 %\usepackage{savetrees}
 
@@ -116,6 +117,7 @@
 \input{inc/introduction}
 \input{inc/requirements}
 \input{inc/technical}
+\input{inc/userinterface.tex}
 \input{inc/process}
 \input{inc/implementation}
 \input{inc/deployment}
@@ -128,12 +130,33 @@
 \bibliography{inc/BibTex}
 
 \appendix %after this line all chapters will have letters instead of numbers
-\chapter{Initial Project Description} \label{appendix:initialProjectDescription}
+\chapter{Initial Project Description}   \label{appendix:initialProjectDescription}
 \includepdf[pages={-}]{inc/generalAppendix/3DRepresentationofComplexDataStructures.pdf}
 \input{inc/projectplan}
 
 %\input{inc/gantt}
+\chapter{User study}
+\label{app:userStudies}
+\input{inc/generalAppendix/Userstudy.tex}
+\input{inc/generalAppendix/userStudies/1.tex}
+\input{inc/generalAppendix/userStudies/2.tex}
+\input{inc/generalAppendix/userStudies/3.tex}
+\input{inc/generalAppendix/userStudies/4.tex}
+\input{inc/generalAppendix/userStudies/5.tex}
+\input{inc/generalAppendix/userStudies/6.tex}
+\input{inc/generalAppendix/userStudies/7.tex}
+\input{inc/generalAppendix/userStudies/8.tex}
+\input{inc/generalAppendix/userStudies/9.tex}
+\chapter{Design}
+\section{Initial visualization concept}
+\input{inc/figures/UIConsept.tex} \label{app:initialConcept}
+\section{Logo concepts}
+\input{inc/figures/logos.tex}
+\chapter{Jira exported decision log}    \label{appendix:decisionLog}
+\includepdf[pages={-}]{inc/generalAppendix/jiraDecisionlog.pdf}
 \input{inc/meetinglog.tex}
+\chapter{Time log}
+\label{app:timelog}
 %\input{inc/worklog}
 
 \end{document}

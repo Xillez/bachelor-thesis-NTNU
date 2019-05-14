@@ -1,0 +1,35 @@
+\begin{figure}[H]
+\noindent\rule{\textwidth}{1pt}
+\begin{lstlisting}[language=JavaScript, caption= {JSON structure for a valid test case}, label={lst:testCase}]
+{
+	name: "Valid - new repo - sendAddRequest",
+	websocketURL: "ws://localhost:8080/repo/add",
+	payload: {
+		uri: "https://github.com/example/ECS.git"
+	},
+	wantMessage: {
+		length: 1,
+		messages:
+		[
+			{
+				statuscode: 202,
+				statustext: "Accepted",
+				body : {
+					status: "Cloning"
+				}
+			}
+		]
+	},
+	wantCloser: {
+		reason: {
+			statuscode: 201,
+			statustext: "Created",
+			body: {
+				status: "Done"
+			}
+		}
+	}
+}
+\end{lstlisting}
+\noindent\rule{\textwidth}{1pt}
+\end{figure}

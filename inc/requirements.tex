@@ -12,16 +12,14 @@ The group have divided the requirements in three sections result goals, optional
         \item Program must be able to show potential execution path or program flow through the program.
         \item Program must have a public facing API for developers.
         \item Program must be dockerized. 
-        \item The user must be able to interact with the 3D visualization to show implementation of data structures.
+        \item The user must be able to interact with the 3D visualization to show implementation of data-structures.
         \item The system must present complexity metrics to the user.
         \item The system must give an indication on where complexity arises.
     \end{itemize}
     
 \section{Operational requirements}
-    %%%%%
-    % Eldar:    I think we need more information to do anything on effect goals, as what is there now is not easily quantifiable or verifiable. 
-    %           It is to general to give any valuable information and is not related to what the effect of the program in action.
-    %%%%%
+\newacronym{vcpu}{VCPU}{Virtual Central Processing Unit}
+    The following operational requirements assumes a server equivalent of a \gls{skyhigh} instance of flavor c1.tiny with 16 Gig of ram, 40 Gig of disk space and 8 \glspl{vcpu}.  
     \begin{enumerate}  
         \item Quantitative goals for the system: 
         \begin{itemize}
@@ -208,7 +206,7 @@ Table \ref{riskMitigation} shows the mitigation strategy for the project risks w
 \newglossaryentry{sql}{name=SQL, description={Structured Query Language used for Querying form certain database systems}}
 \newglossaryentry{sqliAttack}{name=SQLi-attack, description={\gls{sql} injection, input of executable \gls{sql} code that could modify a \gls{sql}-based database system}}
 
-\subsection{Final Security requirements}
+\section{Security requirements}
 \begin{itemize}
     \item Sanitation of input from external sources within visualization and field for repository link submission to mitigate \gls{sqliAttack} and \gls{xssAttack}s
     \item No accounts will mitigate a lot of related responsibilities with regards to security about storing sensitive personal or corporate data .e.g Encryption of sensitive data, authentication of users, secure storage of user data, etc.
