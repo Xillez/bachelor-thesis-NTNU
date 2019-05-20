@@ -6,21 +6,21 @@
 \section{Dockerization}
 \newglossaryentry{mongo}{name={MongoDB}, description={A document database storing data in \gls{json} like documents \cite{mongodb}}}
 
-\Gls{docker} was used to simplify the system setup for any administrative users and help with documenting the infrastructure. The goal was to be able to launch the system with by running the command: "docker-compose up".
+\Gls{docker} was used to simplify the system setup for any administrative users and help with documenting the infrastructure. The goal was to be able to launch the system by running the command: "docker-compose up".
 
-Whit this it would be easier for potential administrators to test the system and figure out if it would be appropriate for their use-case. It would also be easier to continue with \gls{opensource} development, as the \gls{docker} instances could be used as a common test bed. 
+With this it would be easier for potential administrators to test the system and figure out if it would be appropriate for their use-case. It would also be easier to continue with \gls{opensource} development, as the \gls{docker} instances could be used as a common test bed. 
 
 \Gls{dockercompose} names four services:
 \begin{itemize}
     \item web - Serves the \gls{html}, \gls{css} and \gls{js}. Mainly deals with the visualization, presenting state and quality metrics.
     \item api - The Go \gls{api} server. Mainly dealing with controlling the database and parser on requests from web. 
     \item  mongo\_db - The \gls{mongo} database \cite{mongodb}.
-    \item doc - Servs the \gls{apidoc} 
+    \item doc - Serves the \gls{apidoc} 
 \end{itemize}
 
 The services; web, api and doc each have a defined \gls{dockerfile} in the repository, while mongo\_db uses mongo:latest, which is the official image. 
 
-mongo\_db is connected with api but not with the network. This improves the security by not exposing the database to the internet.
+mongo\_db is connected with api but not with the network. This improves the security by not directly exposing the database to the internet.
 
 \section{Deployment on SkyHigh with HOT}
 \newglossaryentry{openstack}{name={OpenStack}, description={A cloud operating system that controls large pools of compute, storage, and networking resources throughout a datacenter\cite{openstack}}}

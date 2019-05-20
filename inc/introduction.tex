@@ -4,48 +4,48 @@
 \section{Background}
 % Should we introduce the state of the world before or after presenting the product owner? 
 \newglossaryentry{whitebox}{name={white-box}, description={Software testing approaches that examine the program structure and derive test data from the program logic \cite{enc:whitebox}}}
-\newglossaryentry{controlFlow}{name={Control flow}, description={The order of which a programs instructions or statements are executed \cite{wiki:controlFlow}}}
-This project was requested by \productowner{} from the Department of Computer Science at \NTNUgjovik. The project was requested because finding libraries or frameworks that would fit well for new software projects can be a time consuming and difficult process that might require \gls{whitebox} analysis. This project should make the \gls{whitebox} analysis easier by abstracting the code and representing it as a 3D graphical structure and giving information on complexity and quality of the project. 
+\newglossaryentry{controlFlow}{name={control flow}, description={The order of which a programs instructions or statements are executed \cite{wiki:controlFlow}}}
+This project was requested by \productowner{} from the Department of Computer Science at \NTNUgjovik. The project was requested because finding libraries or frameworks that would fit well for new software projects can be a time consuming and difficult process that might require \gls{whitebox} analysis. This project should make the \gls{whitebox} analysis easier by abstracting the code, representing it as a 3D graphical structure, whilst also giving information on complexity and quality of the project. 
 
-CodePark \cite{DBLP:journals/corr/abs-1708-02174} and CodeCity \cite{wettel2010software} are two applications trying to solve the same type of problem with similar 3D solution, representing the code as houses or city blocks. CodePark visualize the code-base in park-like environment. Each class in the code-base is represented as a interactable cube. In the cube, all functions in each class are visible on the wall and upon a click, it highlights the function in the code, which is shown on a separate wall. CodeCity represents the code as navigable cities, where each building represents a class and each district represents a package.
+CodePark \cite{DBLP:journals/corr/abs-1708-02174} and CodeCity \cite{wettel2010software} are two applications trying to solve the same type of problem with similar 3D solution, representing the code as houses or city blocks. CodePark visualize the codebase in park-like environment. Each class in the codebase is represented as an interactable cube. In the cube, all functions in each class are visible on the wall and upon a click, it highlights the function in the code, which is shown on a separate wall. CodeCity represents the code as navigable cities, where each building represents a class and each district represents a package.
 
-The two examples differ from this project in how this project will represent connections related to \gls{controlFlow} and the code not being represented as buildings or cities. This project will also represent different data-structures such as vectors and maps.
+The two examples differ from this project in how this project will represent connections related to \gls{controlFlow} and the code not being represented as buildings or cities. This project will also represent different data structures such as vectors and maps.
 
 \section{Subject area}
 
-Our software is meant to be used in a software development setting. Software development \cite{wiki:softwareDevelopment} includes many different processes such as system specification, software reuse, integration, development, testing and maintenance. Our system will mostly help with the software reuse and integration part, but will also indirectly affect the other processes.
+The software is meant to be used in a software development setting. Software development \cite{wiki:softwareDevelopment} includes many different processes such as system specification, software reuse, integration, development, testing and maintenance. The system will mostly help with the software reuse and integration part, but will also indirectly affect the other processes.
 
 System specification deals with identifying what the system should do and the environment it acts in.
 
-Software reuse takes those specifications and identifies preexisting systems that could be used instead of developing new software. This process often identifies libraries and frameworks that can be used, which is often recommended \cite{Krueger:1992:SR:130844.130856} in both large and small systems. Developers spend a lot of time debugging, securing, documenting, structuring or finding suitable libraries and frameworks, etc. This can be frustrating and time consuming if there is no good documentation, source code or life cycle provided \cite{mileva2009mining}.
+Software reuse takes those specifications and identifies preexisting systems that could be used instead of developing new software. This process often identifies libraries and frameworks that can be used, which is often recommended \cite{Krueger:1992:SR:130844.130856} in both large and small systems. Developers spend a lot of time debugging, securing, documenting, structuring or finding suitable libraries and frameworks. This can be frustrating and time consuming if there is no good documentation, source code or life cycle provided \cite{mileva2009mining}.
 
 Software integration takes the preexisting systems or the software it integrates with and molds them to fit smoothly. The integration can vary in difficulty depending on the implementation of each software solution. 
 
-Software development creates the functionality that is not provided by preexisting solutions. It is recommended to have as little code complexity \cite{DBLP:journals/corr/abs-1712-00675} as possible for readability  \cite{spinellis2003readingWritingCode} which can be hard for developers to see while programming and is partially reliant on how well the software integration went. Potential problems with the preexisting systems are likely to emerge at this state as it is difficult to see limitation and bugs during the software integration phase. Finding bugs in this scenario is time-consuming \cite{westland2002cost} and might require the developers to do white-box testing on an unfamiliar system.
+Software development creates the functionality that is not provided by preexisting solutions. It is recommended to have as little code complexity \cite{DBLP:journals/corr/abs-1712-00675} as possible for readability  \cite{spinellis2003readingWritingCode} which can be hard for developers to maintain while programming and is partially reliant on how well the software integration went. Potential problems with the preexisting systems are likely to emerge at this state as it is difficult to see limitation and bugs during the software integration phase. Finding bugs in this scenario is time-consuming \cite{westland2002cost} and might require the developers to do white-box testing on an unfamiliar system.
 Bugs that are not found during development will hopefully be found during software testing.
 
-Software testing validates that the functionality works as expected with no side-effects. This can help spot bugs or shortcomings in the preexisting systems. If bugs are not found during software testing, then they are likely to persist through the life cycle of the software or until identified by the user
+Software testing validates that the functionality works as expected with no side-effects. This can help spot bugs or shortcomings in the preexisting systems. If bugs are not found during software testing, then they are likely to persist through the life cycle of the software or until identified by the user.
 
 Software maintenance deals with updating the software to remove issues found by users or through normal use. It also assures that dependencies stay up to date.
 
-The problem our system will help with is giving an impression of the build and quality of libraries and frameworks that are considered by the software reuse process. The system will act as a lesser alternative to documentation or as a quick overview to the libraries or framework.
+The problem this system will help with is giving an impression of the build and quality of libraries and frameworks that are considered by the software reuse process. The system will act as a lesser alternative to documentation or as a quick overview to the libraries or framework.
 
 \section{Boundaries}
 \newglossaryentry{qualitymetric}{name={quality metric}, description={A rule for quantifying some characteristic or attribute of a computer software entity.
 One of a set of techniques whose aim is to measure the quality of a computer program. \cite{enc:softwaremetric}}}
-The system is not meant to help with software specification or the later stages of development after software integration. It is not meant to supersede or be an exhaustive substitution of documentation, but rather an abstraction and quick overview of the code base. The abstraction will be limited to a 3D visualization and textual representation of metric and meta data. It will not change the software in question or improve the quality, but give the end user an insight into the software model and code quality. 
+The system is not meant to help with software specification or the later stages of development after software integration. It is not meant to supersede or be an exhaustive substitution of documentation, but rather give an abstraction and a quick overview of the codebase. The abstraction will be limited to a 3D visualization and textual representation of metric and meta data. It will not change the software in question or improve the quality, but give the end user an insight into the software model and code quality. 
 The project will not involve developing new \glspl{qualitymetric}, but use preexisting metrics that have been used by other developers and been proven to be help-full.
 
-The system will not build, nor execute the code-base in question but rather do static analysis. There will neither be provided any test coverage nor execution of any shipped testing functionality.
+The system will not build, nor execute the codebase in question but rather do static analysis. There will neither be provided any test coverage nor execution of any shipped testing functionality.
 
 \section{Target group}
 Target groups for the project can be divided into two parts; Application users and thesis readers.
 
-\subsection{Web Application Users}
+\subsection{Application users}
 \newacronym{it}{IT}{Information Technology}
-The web application mainly targets three different settings or context;
+The application mainly targets three different settings or contexts;
 \begin{itemize}
-    \item Academic - Students, lecturer or researchers studying \gls{it}. 
+    \item Academic - Students, lecturer or researchers studying \gls{it}.
     \item Professional - \gls{it} developers.
     \item Amateur - hobbyists looking into \gls{it}.
 \end{itemize}
@@ -59,19 +59,19 @@ Lecturers can use the system in the lectures to explain the differences between 
 \subsubsection{Professional and amateur}
 The main target groups of this web-application are programmers in both professional and amateur settings. Here the application will be used mainly by the lead programmer as well as developers and architects to decide whether a library or framework should be used in production by assessing its complexity. 
 
-Programmers that are in the learning phase might find this application useful because of its 3D visualization of the code-base which will help them to see the whole code-base as one structured and clear representation.
+Programmers that are in the learning phase might find this application useful because of its 3D visualization of the codebase which will help them to see the whole codebase as one structured and clear representation.
 
 \subsection{Thesis readers}
-\newglossaryentry{opensource}{name={open-source}, description={Open source is a term denoting that a product includes permission to use its source code, design documents, or content \cite{wiki:opensource}}}
+\newglossaryentry{opensource}{name={open-source}, description={A term denoting that a product includes permission to use its source code, design documents, or content \cite{wiki:opensource}}}
 Target group for the thesis is anyone interested in knowing about the development process, motivation or implementation of the project. First and foremost anyone involved in the grading process, but also any developer who would take the project further as an \gls{opensource} project or other derived work.
-This thesis is a natural followup after reading the documentation provided in the \gls{git} repository.
+This thesis is a natural follow-up after reading the documentation provided in the \gls{git} repository.
 
 \section{Motivation}
 \newglossaryentry{devops}{name=DevOps, description={A set of practices that aim to improve connections between development and operations and shorten the development liefecycle while ensuring high quality}}
 %
 % REFACTORING: Continue refactoring from here
 %
-The project description shown in appendix \ref{appendix:initialProjectDescription}, indicated great potential and was interesting . It allowed for flexibility and depth, by spanning a variety of technologies and subject areas. It mentioned web-technologies, language parsing, complex data-structures, visualization with interaction and container technologies. For the group it was a good mix of familiar technologies for exploration and unfamiliar concepts to study. The project would allow for a practical application of \gls{devops} and system architecture which the group had a more theoretical understanding of. It would also explore language parsing that the group has a very limited knowledge of and associate with low-level, complicated or compiler related subject areas. Parsing would allow for a deep dive into niche aspects of C++, Java or other programming languages. In addition the project was about static analysis that could help to improve understanding of code quality. The main motivation was the high learning outcome.
+The project description, as shown in appendix \ref{appendix:initialProjectDescription}, indicated great potential and was interesting. It allowed for flexibility and depth, by spanning a variety of technologies and subject areas. It mentioned web-technologies, language parsing, complex data structures, visualization with interaction and container technologies. For the group it was a good mix of familiar technologies for further exploration and unfamiliar concepts to study. The project would allow for a practical application of \gls{devops} and system architecture which the group had a more theoretical understanding of. It would also explore language parsing that the group has a very limited knowledge of and associate with low-level, complicated or compiler related subject areas. Parsing would allow for a deep dive into niche aspects of C++, Java or other programming languages. In addition the project was about static analysis that could help to improve understanding of code quality. The main motivation was the high learning outcome.
 
 \subsection{Background competence}
 \label{sec:competence}
@@ -81,13 +81,13 @@ The groups knowledge that was considered relevant for the project included:
 %% How should be reference the course descriptions?
 %%
 \begin{itemize}
-    \item Operating systems - All members had theoretical knowledge through a course and practical experience with Linux as main driver for several years.
-    \item Architecture and static analysis - All members had a theoretical understanding through the software engineering and software security course but lacked more in depth practical experience.
-    \item Visualization and interaction - All members had experience through the graphics programming and the games programming courses. 
-    \item Complex data-structures - All members had theoretical experience through math for programming, math for computer science and algorithmic methods.
-    \item Web-development - All members had experience through Cloud Technologies course. Besides, individual members had experience through Web Technology course, software security project or learning assistant task. 
+    \item Operating systems - All members had theoretical knowledge through a course \cite{course:operating} and practical experience with Linux as main driver for several years.
+    \item Architecture and static analysis - All members had a theoretical understanding through the Software engineering course \cite{course:softEng} and Software security course but lacked more in-depth practical experience.
+    \item Visualization and interaction - All members had experience through the Graphics programming course \cite{course:graphics} and the Game programming course \cite{course:gameprog}. 
+    \item Complex data structures - All members had theoretical experience through math for programming \cite{course:progMath}, Math for computer science course \cite{course:mathComputerScience} and Algorithmic methods course \cite{course:algmet}.
+    \item Web-development - All members had experience through Cloud technologies course \cite{course:cloud}. Besides, individual members had experience through Web technology course \cite{course:webtech}, Software security course \cite{course:softSec} project or learning assistant task. 
 \end{itemize}
-\subsection{Competence to acquire}
+\subsection{Knowledge to acquire}
 \begin{itemize}
     \item Static analysis
     \item Language parsing
@@ -110,14 +110,10 @@ The groups knowledge that was considered relevant for the project included:
 \end{itemize}
 
 \subsubsection{Technological Constraints}
-
 \begin{itemize}
     \item The system should be cross platform.
     \item The system should be dockerized.
     \item The system should have a REST API.
-    \item The resulting system will not be in violation of general data protection regulation. \cite{lovdata:gdpr}
-    %\item ISO/IEC 27000 in regards to security.
-    \item The system will not be in violation of Norwegian copyright act.
 \end{itemize}
 
 \subsection{Time Constraints}
@@ -135,11 +131,11 @@ Project planning started \nth{5} Jan 2019.
 The other roles involved in the thesis are supervisor and product owner.
 \begin{itemize}
     \item The supervisor role is filled by \supervisor{} and will be responsible for providing the feedback, insights and corrections on both report structure and content.
-    \item The product owner role is filled by \productowner{} and will be responsible for providing wanted criteria. Discussing these criteria regarding how time consuming and how demanding they are. Upcoming planned sprint will also be discussed with product owner.
+    \item The product owner role is filled by \productowner{} and will be responsible for providing wanted criteria. Discussing these criteria regarding how time consuming, how demanding they are and planning upcoming \glspl{sprint}.
 \end{itemize}
 
 \newacronym{imrad}{IMRaD}{Introduction, Material and method, Results and Discussion}
 
 \section{About Report}
-The report contains a lot of acronyms and expressions as these are commonly used in a development setting, but they might not be intuitive and therefor a glossary has been included to solve this problem. The structure of the report is based on \gls{imrad}-model and provided template for bachelor thesis by \NTNUgjovik{}.
+The report contains a lot of acronyms and expressions as these are commonly used in a development setting, but they might not be intuitive and therefore a glossary has been included to solve this problem. The structure of the report is based on the \gls{imrad}-model and provided template for bachelor thesis by \NTNUgjovik{}.
 

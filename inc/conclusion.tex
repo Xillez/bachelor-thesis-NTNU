@@ -1,7 +1,7 @@
 \chapter{Conclusion}
 \label{chap:conclusion}
 \section{Result}
-The result is a prototype capable of handling the Java and C++, but lacks a good indication of software quality and complexity. It visualizes data-structures, but contains duplicate data. The product owner requested a system that could be used to identify good or bad libraries, something the system is incapable of, but provides a good bedrock for future development, graduation projects or master thesis.
+The result is a prototype capable of handling Java and C++ and gives a decent indication of simple code quality and complexity. It visualizes data structures in the 3D environment in a clear and intuitive manner, although contains some duplicate data. The product owner requested a system that could be used to identify good or bad libraries, which the system gave a minimal but sufficient indication of through the visualization. It provides a good bedrock for future development, graduation projects or master thesis.
 
 \section{Future Work}
 \label{sec:future}
@@ -10,12 +10,13 @@ The project could be continued in a master thesis as a research or personal proj
 \begin{itemize}
     \item Integrate AI to do language recognition.
     \item Integrate virtual reality for visualization.
-    \item Extend a REST \gls{api} to be more independent from systems \gls{gui}, but also fetch desired parts of parsed code through REST.
-    \item Spacing as sizing algorithm could be implemented in a proper manner insuring children don't escape their parents nor would crash with siblings.
-    \item File tree structure could be implemented and visualized.
-    \item Front-end could be refactored to a properly segmented and professional system.
+    \item Extend a \gls{rest} \gls{api} to be more independent from systems \gls{gui}, but also fetch desired parts of parsed code through \gls{rest}.
+    \item Spacing as sizing algorithm could be implemented in a proper manner insuring children do not escape their parents nor would collide with siblings.
+    \item File tree structure could be implemented and visualized within the window.
+    \item \gls{frontend} could be refactored to a properly segmented and professional system.
     \item The camera controls could be improved to become more intuitive
     \item Adding user settings/account capabilities for remembering locale, submitted repositories, custom styles and saving the world state properties to continue the inspection from the same point or preparation.
+    \item Integrate  GraphQL to fetch specific scopes from the parsed code, to save on parsing and loading resources.
 \end{itemize}
 
 \section{Evaluation of group work}

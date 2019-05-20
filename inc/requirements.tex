@@ -1,7 +1,7 @@
 \chapter{Requirements}
 \label{chap:requirements}
 
-The group have divided the requirements in three sections result goals, optional requirements and learning outcomes. Result goals defines what the group expects to deliver as the end product. Operational requirements describe what the team expect from the system after a set amount of time and are listed to give an indication of the intended quality of the final system. Learning outcomes describe what the team wants to learn during development and thesis writing.
+The group have divided the requirements in three sections: result goals, operational requirements and learning outcomes. Result goals defines what the group expect to deliver as the end product. Operational requirements describe what the team expect from the system after a set amount of time and are listed to give an indication of the intended quality of the final system. Learning outcomes describe what the team wants to learn during development and thesis writing.
 
 \section{Result Goal}
     \begin{itemize}
@@ -9,49 +9,51 @@ The group have divided the requirements in three sections result goals, optional
         \item Code visualization must be in 3D.
         \item Program must give an indication of the quality of the software code.  
         \item Program must be able to take a link to a git repository to use as basis for visualization.
-        \item Program must be able to show potential execution path or program flow through the program.
+        \item Program must be able to show potential execution paths or program flow through the program.
         \item Program must have a public facing API for developers.
         \item Program must be dockerized. 
-        \item The user must be able to interact with the 3D visualization to show implementation of data-structures.
+        \item The user must be able to interact with the 3D visualization to show implementation of data structures.
         \item The system must present complexity metrics to the user.
         \item The system must give an indication on where complexity arises.
     \end{itemize}
     
 \section{Operational requirements}
 \newacronym{vcpu}{VCPU}{Virtual Central Processing Unit}
-    The following operational requirements assumes a server equivalent of a \gls{skyhigh} instance of flavor c1.tiny with 16 Gig of ram, 40 Gig of disk space and 8 \glspl{vcpu}.  
+\newacronym{gb}{GB}{GigaByte}
+\newacronym{kloc}{KLOC}{Thousands of Lines Of Code}
+    The following operational requirements assumes a server equivalent of a \gls{skyhigh} instance of flavor c1.tiny with 16 \gls{gb} of ram, 40 \gls{gb} of disk space and 8 \glspl{vcpu}.  
     \begin{enumerate}  
         \item Quantitative goals for the system: 
         \begin{itemize}
-            \item The system must handle 30 concurrent users with repository of less than 10 KLOC while using less than 10 minutes of processing time.
+            \item The system must handle 30 concurrent users with repository of less than 10 \gls{kloc} while using less than 10 minutes of processing time.
             \item The system must be able to handle a peak of at least 60 users.
-            \item The system must be able to handle repositories of less than 100 KLOC. 
+            \item The system must be able to handle repositories of less than 100 \gls{kloc}. 
         \end{itemize}
         \item Qualitative goals for the system:
         \begin{itemize}
             \item The system must help developer(s) gain overview and an understanding of the code base.
             \item The system must let the user easily navigate through the visualization.
             \item The system must be naturally intuitive and easy-to-use for new users.
-            \item The system must be accessible to people with minor disabilities like colorblindness. 
+            \item The system must be accessible to people with minor disabilities, like colorblindness. 
         \end{itemize}
     \end{enumerate}
         
 \section{Learning outcome}
     \begin{itemize}
-        \item Learn in depths WebGL technology.
+        \item Learn in depths \gls{webgl} technology.
         \item Learn professionalism in web development.
-        \item Understand and follow DevOps methodology through out the project.
+        \item Understand and follow \gls{devops} methodology throughout the project.
         \item Learn in depths dockerizing containers.
-        \item Learn Front-end web frameworks.
+        \item Learn \gls{frontend} web frameworks.
         \item Learn about different code quality metrics for static analysis.
         \item Learn about professional web architectures.
-        \item Learn about Infrastructure as Code.
+        \item Learn about \gls{iac}.
     \end{itemize}
 
 \section{Use Case}
-\newglossaryentry{usecase}{name=use case, description={use case are usually a list of events, often used to describe the interaction between actors and system}}
+\newglossaryentry{usecase}{name=use case, description={Usually a list of events, often used to describe the interaction between actors and systems}}
 
-To achieve more detailed view of the actual systems functionality that need to be implemented, it is important to visualize the system from users perspective without focusing on implementation details. To do this, \gls{usecase} and use-case diagram are used as they show users needs.
+To achieve more detailed view of the actual systems functionality that need to be implemented, it is important to visualize the system from users perspective without focusing on implementation details. To do this, \glspl{usecase} and a use-case diagram are used as they show users needs.
 
 \input{inc/figures/usecase.tex}
 
@@ -88,7 +90,7 @@ To achieve more detailed view of the actual systems functionality that need to b
     \parbox{\textwidth}{
         \textbf{Use case name:} Select quality metrics                              \\
         \textbf{Actors:} User                                                       \\
-        \textbf{Target:} User can select a specific quality metrics.         \\
+        \textbf{Target:} User can select a specific quality metric.         \\
         \textbf{Description:} User can choose between different quality metrics such as "connascence measure", "cyclomatic complexity" and "Halstead complexity measures" on the quality metrics window. The chosen metrics will then be used for analysis of the submitted codebase.
     }
 } \\ \\
@@ -113,10 +115,10 @@ To achieve more detailed view of the actual systems functionality that need to b
 
 \noindent\fbox{
     \parbox{\textwidth}{
-        \textbf{Use case name:} Get implementation of data-structure                   \\
+        \textbf{Use case name:} Get implementation of data structure                   \\
         \textbf{Actors:} User                                                         \\
-        \textbf{Target:} User can see the implementation of chosen data-structure    \\
-        \textbf{Description:} This functionality is required to have at least one entry in the database so that the system can get the representation of codebase. Once the visualization of codebase is shown, user can choose between visualized data-structures to see the implementation on a window named "Implementation".
+        \textbf{Target:} User can see the implementation of chosen data structure.    \\
+        \textbf{Description:} This functionality is required to have at least one entry in the database so that the system can get the representation of codebase. Once the visualization of codebase is shown, user can choose between visualized data structures to see the implementation on a window named "Implementation".
     }
 } \\ \\
 
@@ -131,10 +133,10 @@ To achieve more detailed view of the actual systems functionality that need to b
 
 \noindent\fbox{
     \parbox{\textwidth}{
-        \textbf{Use case name:} Highlight connection between data-structure          \\
+        \textbf{Use case name:} Highlight connection between data structure          \\
         \textbf{Actors:} User                                                         \\
-        \textbf{Target:} User can submit the git repository               \\
-        \textbf{Description:} This functionality requires a submitted repository so that the representation of codebase can be shown. Once the codebase is visualized, the user can choose between different data-structures visualized to highlight it's links with other data-structures. Highlighting connections will brighten the color of all the links and connected data-structures, but also dull the color of all the unconnected data-structures.
+        \textbf{Target:} Highlighting relations between data structures. \\
+        \textbf{Description:} This functionality requires a submitted repository so that the representation of codebase can be shown. Once the codebase is visualized, the user can choose between different data structures visualized to highlight it's links with other data structures. Highlighting connections will brighten the color of all the links and connected data structures, but also dull the color of all the unconnected data structures.
     }
 } \\ \\
 
@@ -142,8 +144,8 @@ To achieve more detailed view of the actual systems functionality that need to b
     \parbox{\textwidth}{
         \textbf{Use case name:} Get representation of codebase       \\
         \textbf{Actors:} User             \\
-        \textbf{Target:} Visualizing the codebase in 3D environment  \\
-        \textbf{Description:} The user starts at the homepage where the git repository to be visualize needs to be submitted. Once the requested git link is submitted and stored in database, user is taken to loading page where user can see the status of processing codebase file from back-end server. After the processing is done user is taken to 3D visualization page where the visualization will show the different data-structures represented as a shape and a color. 
+        \textbf{Target:} Visualizing the codebase in 3D environment.  \\
+        \textbf{Description:} The user starts at the homepage where the git repository to be visualize needs to be submitted. Once the requested git link is submitted and stored in database, user is taken to loading page where user can see the status of processing codebase file from back-end server. After the processing is done user is taken to 3D visualization page where the visualization will show the different data structures represented as a shape and a color. 
     }
 } \\ \\
 \section{Product backlog}
@@ -151,43 +153,28 @@ To achieve more detailed view of the actual systems functionality that need to b
     \resizebox{\columnwidth}{!}{
         \csvautotabular{inc/csv/finalIssuelist.csv}
     }
-    \caption{Initial story estimates}
-    \label{storyEstimate}
+    \caption{Final backlog}
+    \label{finalBacklog}
     
 \end{table}
-
-The initial story estimates in Table \ref{storyEstimate} resulted in 112 story points. The allocated time of 1200 workhours results in 10 hours per story point. The estimates will be re-estimated on the beginning of relevant sprint and the stories will change. 
-
-\section{User stories}
-%\begin{table}
-%    \resizebox{\columnwidth}{!}{
-%        \csvautotabular{csv/issueEstimate.csv}
-%    }
-%    \caption{Initial story estimates}
-%    \label{storyEstimate}
-%    
-%\end{table}
-%
-%The initial story estimates in Table \ref{storyEstimate} resulted in 112 story points. The allocated time of 1200 workhours results in 10 hours per story point. The estimates will be re-estimated on the beginning of relevant sprint and the stories will change. 
+The final backlog can be seen in table \ref{finalBacklog}. It show a more detailed view than what is described in the use cases. 
 
 \section{Domain model}
-
 \input{inc/figures/domainModel.tex}
 \newglossaryentry{recursion}{name=recursion, description={A computer programming technique involving the use of a procedure, subroutine, function, or algorithm that calls itself one or more times until a specified condition is met at which time the rest of each repetition is processed from the last one called to the first }}
 \newglossaryentry{recursive}{name=recursive, description={Of, relating to, or involving \gls{recursion}}}
 \newglossaryentry{syntax}{name=syntax, description={The way in which linguistic elements (such as words) are put together to form constituents (such as phrases or clauses)}}
 
-Figure \ref{fig:domainModel} shows a crude overview of the subject area relating to the project. The code structure is language dependent and \gls{recursive} based on the \gls{syntax} rules relating to the structure. The relationship between a call, variable and Parameter relates to how a function-call can have parameters that define which overloaded version of a function is being called. This relationship is given as an example but there are many other similar relationships that have not been added for clarity, like how variables like classes can define the scope a function is being called from. This is a relationship between functions being defined as part of a class, variables being instances of said class and calls being called on said variable.
+Figure \ref{fig:domainModel} shows a crude overview of the subject area relating to the project. The code structure is language dependent and \gls{recursive} based on the \gls{syntax} rules relating to the structure. The relationship between a call, variable and parameter relates to how a function-call can have parameters that define which overloaded version of a function is being called. This relationship is given as an example but there are many other similar relationships that have not been added for clarity, like how variable types such as classes can define the scope a function is being called from. This is a relationship between functions being defined as part of a class, variables being instances of said class and calls being called on said variable.
 
 \Gls{syntax} rules are also \gls{recursive} as they can be defined by a set of rules or a character sequence.
 
 \section{Risk assessment}
-
-The initial task description and product owner didn't give any specific security requirements and therefore the group has done a risk assessment to identify any shortcomings that might happen and identify how to deal with them This risk assessment will be a part of the base for the security requirements.
+The initial task description and product owner did not give any specific security requirements and has therefore done a risk assessment to identify any shortcomings that might happen and how to deal with them. This risk assessment will be a part of the base for the security requirements.
 
 \subsection{Identification and project risk analysis}
-
-The table \ref{riskOverview} contains possible risks based on \cite{DBLP:journals/corr/abs-1708-02174} and compared with the system requirements. The probabilities and effects are estimates done by the core team. The priority is based on the minimal Manhattan distance from top right corner of table \ref{riskForm}.
+\newglossaryentry{manhattanDistance}{name={manhattan distance}, description={The distance between two points measured along axes at right angles \cite{manhattanDistance}}}
+The table \ref{riskOverview} contains possible risks based on \cite{DBLP:journals/corr/abs-1708-02174} and compared with the system requirements. The probabilities and effects are estimates done by the core team. The priority is based on the minimal \gls{manhattanDistance} from top right corner of table \ref{riskForm}.
 
 \input{inc/tables/RiskOverview.tex}
 
@@ -203,16 +190,15 @@ Table \ref{riskMitigation} shows the mitigation strategy for the project risks w
 \newglossaryentry{dosAttack}{name=DOS-attack, description={Denial of Service attack}}
 \newglossaryentry{proprietary}{name=proprietary, description={Closed source}}
 \newglossaryentry{xssAttack}{name=XSS-attack, description={Cross site scripting, input executable code that will run on other instances of the service}}
-\newglossaryentry{sql}{name=SQL, description={Structured Query Language used for Querying form certain database systems}}
+\newglossaryentry{sql}{name=SQL, description={Structured Query Language used for Querying from certain database systems}}
 \newglossaryentry{sqliAttack}{name=SQLi-attack, description={\gls{sql} injection, input of executable \gls{sql} code that could modify a \gls{sql}-based database system}}
 
 \section{Security requirements}
 \begin{itemize}
-    \item Sanitation of input from external sources within visualization and field for repository link submission to mitigate \gls{sqliAttack} and \gls{xssAttack}s
-    \item No accounts will mitigate a lot of related responsibilities with regards to security about storing sensitive personal or corporate data .e.g Encryption of sensitive data, authentication of users, secure storage of user data, etc.
-    \item The application won't in any way record or process any data that can be used to identify usage patterns, any individual or corporation. 
-    \item Application will not store nor expose sensitive personal or corporate project information due to the way \gls{git} handles private or \gls{proprietary} repositories. Any project stored will be freely available on other services such as \href{Github}{https://github.com/}.
-    \item The submitted repositories that are stored, are only stored for visualization of the codebase and won't at any point in time be built nor executed by any group member or the application it-self. Any submitted repository will not be used for any other purpose.
+    \item Sanitization of input from external sources within visualization and field for repository link submission to mitigate \gls{sqliAttack} and \gls{xssAttack}s.
+    \item The application will not in any way record or process any data that can be used to identify usage patterns for individual or corporation. 
+    \item Application will not store nor expose sensitive personal or corporate project information.
+    \item The submitted repositories that are stored, are only stored for visualization of the codebase and will not at any point be built by the application.
+    \item Any submitted repository will not be used for any other purpose than for visualization and quality assessment.
     \item Extensive testing to mitigate instabilities.
 \end{itemize}
-

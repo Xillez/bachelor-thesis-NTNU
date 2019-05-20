@@ -1,6 +1,6 @@
 \begin{figure}[H]
 \noindent\rule{\textwidth}{1pt}
-\begin{lstlisting}[language=AntlrGrammar, caption={A rule from CPP14.g4 \cite{git:cpp14_g4} from the ANTLR grammar \gls{git} repository}, label={lst:antlrCppGrammarRuleExample}]
+\begin{lstlisting}[language=AntlrGrammar, caption={Rule for memberdeclaration}, label={lst:antlrCppGrammarRuleExample}]
 memberdeclaration
    : attributespecifierseq? declspecifierseq? memberdeclaratorlist? ';'
    | functiondefinition
@@ -11,5 +11,8 @@ memberdeclaration
    | emptydeclaration
    ;
 \end{lstlisting}
+\medskip
+\small
+Taken from CPP14.g4 \cite{git:cpp14_g4} from the ANTLR grammar \gls{git} repository
 \noindent\rule{\textwidth}{1pt}
 \end{figure}

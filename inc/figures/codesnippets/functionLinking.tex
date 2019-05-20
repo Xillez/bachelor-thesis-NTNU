@@ -1,6 +1,6 @@
 \begin{figure}[H]
 \noindent\rule{\textwidth}{1pt}
-\begin{lstlisting}[language=JavaScript, caption= {Linking function of calls}, label={lst:callLinks}]
+\begin{lstlisting}[language=JavaScript, caption= {Linking function for calls}, label={lst:callLinks}]
 var setLinks = function(tree, scene){
     scene.updateMatrixWorld();
     var nodes = tree.getSuccessors();
@@ -9,7 +9,7 @@ var setLinks = function(tree, scene){
 
         if (node.getDrawableIndex() != -1) {
 
-            node.getLinks().forEach((strength, otherIndex) => {
+            node.getLinks().forEach( function(strength, otherIndex) {
 
                 if (nodes[otherIndex].getDrawableIndex() != -1) {
 

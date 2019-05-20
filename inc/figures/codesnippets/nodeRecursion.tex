@@ -1,13 +1,13 @@
 \begin{figure}[H]
 \noindent\rule{\textwidth}{1pt}
-\begin{lstlisting}[language=JavaScript, caption={Recursive to get node in tree, initiated by FDG(root)}, label={lst:getNode}]
+\begin{lstlisting}[language=JavaScript, caption={Get node function}, label={lst:getNode}]
     /**
      * Gets the node based on index.
      *
      * @param  {number} requestedIndex - The requested node index
      * @return {object} The node.
      */
-    var getNode = function(requestedIndex, level){
+    var getNode = function(requestedIndex){
         var localOffset = 0;                // Used to calculate relative index.
         var requestedNode = null;
         // Check if self is requested node.
